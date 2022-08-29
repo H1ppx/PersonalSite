@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 
 @PageTitle("Economics")
 @Route(value = "econ", layout = MainLayout.class)
@@ -29,6 +30,8 @@ public class EconomicsView extends VerticalLayout {
 
         Accordion accordion = new Accordion();
         accordion.add(breakEvenCalculator());
+        accordion.add(powerSizingCalculator());
+        accordion.add(pvfvCalculator());
         add(accordion);
 
         setSizeFull();
@@ -71,7 +74,7 @@ public class EconomicsView extends VerticalLayout {
 
         HorizontalLayout hLayout2 = new HorizontalLayout();
         hLayout2.setPadding(true);
-        hLayout2.add(breakEvenQuantity, button);
+        hLayout2.add(breakEvenQuantity);
 
         VerticalLayout vLayout = new VerticalLayout();
         vLayout.setPadding(true);
@@ -81,10 +84,89 @@ public class EconomicsView extends VerticalLayout {
                 "create a unit."));
         vLayout.add(hLayout1);
         vLayout.add(hLayout2);
+        vLayout.add(button);
 
         return new AccordionPanel("Break Even Quantity Calculator", vLayout);
     }
 
+    //Todo add logic
+    private AccordionPanel powerSizingCalculator(){
+
+        TextField sizeA = new TextField();
+        sizeA.setLabel("Size A");
+
+        TextField sizeB = new TextField();
+        sizeB.setLabel("Size B");
+
+        TextField costA = new TextField();
+        costA.setLabel("Cost A");
+
+        TextField costB = new TextField();
+        costB.setLabel("Cost B");
+
+        TextField costCapacityFactor = new TextField();
+        costCapacityFactor.setLabel("Cost Capacity Factor");
+
+        Button button = new Button("Calculate");
+        button.addClickListener(event -> System.out.println(true));
 
 
+        HorizontalLayout hlayout1 = new HorizontalLayout();
+        hlayout1.setPadding(true);
+        hlayout1.add(sizeA, sizeB, costCapacityFactor, button);
+
+        HorizontalLayout hlayout2 = new HorizontalLayout();
+        hlayout2.setPadding(true);
+        hlayout2.add(costA, costB, costCapacityFactor);
+
+        VerticalLayout vLayout = new VerticalLayout();
+        vLayout.setPadding(false);
+        vLayout.add(new Paragraph("The 'power sizing model' of cost estimation is based on economies of scale. " +
+                "It is used for estimating the cost of equipment and other industrial items. " +
+                "Explanation: The known cost or price of a model commodity is either scaled up or are scaled-down " +
+                "which results in economies of scale."));
+        vLayout.add(hlayout1);
+        vLayout.add(hlayout2);
+        vLayout.add(button);
+
+        return new AccordionPanel("Power Sizing Calculator", vLayout);
+    }
+
+    //Todo add logic
+    private AccordionPanel pvfvCalculator(){
+
+        TextField presentValue = new TextField();
+        presentValue.setLabel("Present Value");
+
+        TextField futureValue = new TextField();
+        futureValue.setLabel("Future Value");
+
+        TextField interestRate = new TextField();
+        interestRate.setLabel("Interest Rate");
+
+        TextField periods = new TextField();
+        periods.setLabel("Number of Periods");
+
+        Button button = new Button("Calculate");
+        button.addClickListener(event -> System.out.println(true));
+
+
+        HorizontalLayout hLayout1 = new HorizontalLayout();
+        hLayout1.setPadding(true);
+        hLayout1.add(presentValue, futureValue);
+
+        HorizontalLayout hLayout2 = new HorizontalLayout();
+        hLayout2.setPadding(true);
+        hLayout2.add(interestRate, periods);
+
+        VerticalLayout vLayout = new VerticalLayout();
+        vLayout.setPadding(true);
+        vLayout.add(new Paragraph("Calculates the present value, future value, interest rate or amount of periods " +
+                "given the rest of the conditions are given"));
+        vLayout.add(hLayout1);
+        vLayout.add(hLayout2);
+        vLayout.add(button);
+
+        return new AccordionPanel("PV/FV Calculator for Lump Sums", vLayout);
+    }
 }
