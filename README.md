@@ -1,4 +1,4 @@
-# Personal Site
+# Personal Site [![CircleCI](https://dl.circleci.com/status-badge/img/c05a31cdeaa901a6d56f3fe52feb23b14068e885/H1ppx/PersonalSite/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/c05a31cdeaa901a6d56f3fe52feb23b14068e885/H1ppx/PersonalSite/tree/main)
 
 This repository is the code for my personal website.
 It is built using the Vaadin framework with Spring Boot with java.
