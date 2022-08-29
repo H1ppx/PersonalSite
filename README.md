@@ -1,7 +1,10 @@
-# Personal Site [![CircleCI](https://dl.circleci.com/status-badge/img/c05a31cdeaa901a6d56f3fe52feb23b14068e885/H1ppx/PersonalSite/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/c05a31cdeaa901a6d56f3fe52feb23b14068e885/H1ppx/PersonalSite/tree/main)
+# Personal Site 
 
 This repository is the code for my personal website.
 It is built using the Vaadin framework with Spring Boot with java.
+
+## Continuous Integration Checks
+![https://github.com/H1ppx/PersonalSite/actions/workflows/maven.yml](https://github.com/H1ppx/PersonalSite/actions/workflows/maven.yml/badge.svg) ![https://github.com/H1ppx/PersonalSite/actions/workflows/codeql-analysis.yml](https://github.com/H1ppx/PersonalSite/actions/workflows/codeql-analysis.yml/badge.svg) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/H1ppx/PersonalSite/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/H1ppx/PersonalSite/tree/main)
 
 ## Running the application
 
